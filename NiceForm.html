@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nice form</title>
+        <style>
+            :root {
+                --placeholderColor: grey;
+                --placeholderOpacity: 0.6;
+
+                --background: #E9DAC1;
+                --htmlBackground: #F7ECDE;
+                --inputBackground: #9ED2C6;
+                --inputColor: #FEFBE7;
+
+                --flexValueLight: 1;
+                --flexValueDark: 1;
+                
+            }
+
+            ::placeholder{
+                color: var(--placeholderColor);
+                opacity: var(--placeholderOpacity);
+            }
+
+            html{
+                background:var(--htmlBackground);
+            }
+            .search-form {
+                max-width: 400px;
+                margin: 10% auto;
+            }
+            input.search {
+                text-align: center;
+                outline: 0;
+                border: 5px solid var(--background);
+                width: 100%;
+                left: -10%;
+                top: 10px;
+                position: relative;
+                z-index: 100;
+                font-size: 40px;
+                border-radius: 5px;
+                background: var(--background);
+                transition: 
+                    border 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    font-size 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    width 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    color 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+                    background 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+            }
+
+            input.clicked {
+                border: 10px solid var(--inputBackground);
+                background: var(--inputBackground);
+                color: var(--inputColor);
+                font-size: 50px;
+                width: 117%;
+                --placeholderColor: white;
+                --placeholderOpacity: 1;
+            }
+
+            .themeToggler {
+                display: flex;
+                max-width: 100px;
+                position: relative;
+                margin: 0 0 0 auto;
+                cursor: pointer;
+            }
+
+            .toggleButton {
+                transition: 
+                    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+                text-align: center;
+            }
+
+            .light {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                background: #DCD7C9;
+                color: #3F4E4F;
+                flex: var(--flexValueLight);
+            }
+
+            .dark {
+                border: 1x solid #2C3639;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                background: #3F4E4F;
+                color: antiquewhite;
+                flex: var(--flexValueDark);
+            }
+
+        </style>
+    </head>
+    <body>
+          <div class="themeToggler">
+            <div class="light toggleButton">
+                <p>light</p>
+            </div>
+            <div class="dark toggleButton">
+                <p>dark</p>
+            </div>
+          </div>
+          <form class="search-form">
+            <input type="text" class="search" placeholder="Type something nice">
+          </form>
+        <script>
+
+            const search = document.querySelector('.search');
+            const lightButton = document.querySelector('.light');
+            const darkButton = document.querySelector('.dark');
+
+            function toggleClicked() {
+                this.classList.toggle('clicked');
+            }
+
+            function toggleActiveLight() {
+                document.documentElement.style.setProperty( '--flexValueLight', 5);
+                document.documentElement.style.setProperty( '--flexValueDark', 1);
+                document.documentElement.style.setProperty( '--background', '#E9DAC1');
+                document.documentElement.style.setProperty('--htmlBackground', '#F7ECDE');
+                document.documentElement.style.setProperty('--inputBackground', '#9ED2C6');
+                document.documentElement.style.setProperty('--inputColor', '#DCD7C9');
+                document.documentElement.style.setProperty('--placeholderColor', 'grey');
+            }
+
+            function toggleActiveDark() {
+                document.documentElement.style.setProperty( '--flexValueDark', 5);
+                document.documentElement.style.setProperty( '--flexValueLight', 1);
+                document.documentElement.style.setProperty( '--background', '#3F4E4F');
+                document.documentElement.style.setProperty('--htmlBackground', '#2C3639');
+                document.documentElement.style.setProperty('--inputBackground', '#A27B5C');
+                document.documentElement.style.setProperty('--inputColor', '#FEFBE7');
+                document.documentElement.style.setProperty('--placeholderColor', '#FEFBE7');
+            }
+            
+            lightButton.addEventListener('click', toggleActiveLight);
+            darkButton.addEventListener('click', toggleActiveDark);
+            search.addEventListener('click', toggleClicked);
+        </script>
+
+    </body>
+</html>
