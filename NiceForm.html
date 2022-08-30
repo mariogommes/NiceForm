@@ -12,7 +12,7 @@
                 --inputBackground: #9ED2C6;
                 --inputColor: #FEFBE7;
 
-                --flexValueLight: 1;
+                --flexValueLight: 5;
                 --flexValueDark: 1;
                 
             }
@@ -69,7 +69,7 @@
 
             .toggleButton {
                 transition: 
-                    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11);
+                    flex 0.4s cubic-bezier(0.61,-0.19, 0.7,-0.11);
                 text-align: center;
             }
 
@@ -115,9 +115,9 @@
             }
 
             function toggleActiveLight() {
-                document.documentElement.style.setProperty( '--flexValueLight', 5);
-                document.documentElement.style.setProperty( '--flexValueDark', 1);
-                document.documentElement.style.setProperty( '--background', '#E9DAC1');
+                document.documentElement.style.setProperty('--flexValueLight', 5);
+                document.documentElement.style.setProperty('--flexValueDark', 1);
+                document.documentElement.style.setProperty('--background', '#E9DAC1');
                 document.documentElement.style.setProperty('--htmlBackground', '#F7ECDE');
                 document.documentElement.style.setProperty('--inputBackground', '#9ED2C6');
                 document.documentElement.style.setProperty('--inputColor', '#DCD7C9');
@@ -125,9 +125,9 @@
             }
 
             function toggleActiveDark() {
-                document.documentElement.style.setProperty( '--flexValueDark', 5);
-                document.documentElement.style.setProperty( '--flexValueLight', 1);
-                document.documentElement.style.setProperty( '--background', '#3F4E4F');
+                document.documentElement.style.setProperty('--flexValueDark', 5);
+                document.documentElement.style.setProperty('--flexValueLight', 1);
+                document.documentElement.style.setProperty('--background', '#3F4E4F');
                 document.documentElement.style.setProperty('--htmlBackground', '#2C3639');
                 document.documentElement.style.setProperty('--inputBackground', '#A27B5C');
                 document.documentElement.style.setProperty('--inputColor', '#FEFBE7');
